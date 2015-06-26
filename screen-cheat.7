@@ -1,212 +1,121 @@
 .\" vi:set wm=5
-.TH SCREEN 1 "Aug 2003"
-.if n .ds Q \&"
-.if n .ds U \&"
-.if t .ds Q ``
-.if t .ds U ''
-.UC 4
-.SH NAME
-screen \- Key Bindings
-.IP "\fBC-a '\fP	(select)"
-Prompt for a window name or number to switch to.
-.IP "\fBC-a ""\fP	(windowlist -b)"
-Present a list of all windows for selection.
-.IP "\fBC-a 0\fP	(select 0)"
-.PD 0
-.IP "\fB … \fP	   …"
-.IP "\fBC-a 9\fP	(select 9)"
-.IP "\fBC-a -\fP	(select -)"
-.PD
-Switch to window number 0 \- 9, or to the blank window.
-.IP "\fBC-a tab\fP	(focus)"
-.PD
-Switch the input focus to the next region.
-See also \fIsplit, remove, only\fP.
-.IP "\fBC-a C-a\fP	(other)"
-Toggle to the window displayed previously.
-Note that this binding defaults to the command character typed twice,
-unless overridden.  For instance, if you use the option \*Q\fB\-e]x\fP\*U,
-this command becomes \*Q]]\*U.
-.IP "\fBC-a a\fP	(meta)"
-Send the command character (C-a) to window. See \fIescape\fP command.
-.IP "\fBC-a A\fP	(title)"
-Allow the user to enter a name for the current window.
-.IP "\fBC-a b\fP"
-.PD 0
-.IP "\fBC-a C-b\fP	(break)"
-.PD
-Send a break to window.
-.IP "\fBC-a B\fP	(pow_break)"
-Reopen the terminal line and send a break.
-.IP "\fBC-a c\fP"
-.PD 0
-.IP "\fBC-a C-c\fP	(screen)"
-.PD
-Create a new window with a shell and switch to that window.
-.IP "\fBC-a C\fP	(clear)"
-Clear the screen.
-.IP "\fBC-a d\fP"
-.PD 0
-.IP "\fBC-a C-d\fP	(detach)"
-.PD
-Detach
-.I screen
-from this terminal.
-.IP "\fBC-a D D\fP	(pow_detach)"
-Detach and logout.
-.IP "\fBC-a f\fP"
-.PD 0
-.IP "\fBC-a C-f\fP	(flow)"
-.PD
-Toggle flow \fIon\fP, \fIoff\fP or \fIauto\fP.
-.IP "\fBC-a F\fP	(fit)"
-Resize the window to the current region size.
-.IP "\fBC-a C-g\fP	(vbell)"
-Toggles
-.I screen's
-visual bell mode.
-.IP "\fBC-a h\fP	(hardcopy)"
-.PD
-Write a hardcopy of the current window to the file \*Qhardcopy.\fIn\fP\*U.
-.IP "\fBC-a H\fP	(log)"
-Begins/ends logging of the current window to the file \*Qscreenlog.\fIn\fP\*U.
-.IP "\fBC-a i\fP"
-.PD 0
-.IP "\fBC-a C-i\fP	(info)"
-.PD
-Show info about this window.
-.IP "\fBC-a k\fP"
-.PD 0
-.IP "\fBC-a C-k\fP	(kill)"
-.PD
-Destroy current window.
-.IP "\fBC-a l\fP"
-.PD 0
-.IP "\fBC-a C-l\fP	(redisplay)"
-.PD
-Fully refresh current window.
-.IP "\fBC-a L\fP	(login)"
-Toggle this windows login slot. Available only if
-.I screen
-is configured to update the utmp database.
-.IP "\fBC-a m\fP"
-.PD 0
-.IP "\fBC-a C-m\fP	(lastmsg)"
-.PD
-Repeat the last message displayed in the message line.
-.IP "\fBC-a M\fP	(monitor)"
-Toggles monitoring of the current window.
-.IP "\fBC-a space\fP"
-.PD 0
-.IP "\fBC-a n\fP"
-.IP "\fBC-a C-n\fP	(next)"
-.PD
-Switch to the next window.
-.IP "\fBC-a N\fP	(number)"
-Show the number (and title) of the current window.
-.IP "\fBC-a backspace\fP"
-.PD 0
-.IP "\fBC-a C-h\fP"
-.IP "\fBC-a p\fP"
-.IP "\fBC-a C-p\fP	(prev)"
-.PD
-Switch to the previous window (opposite of \fBC-a n\fP).
-.IP "\fBC-a q\fP"
-.PD 0
-.IP "\fBC-a C-q\fP	(xon)"
-.PD
-Send a control-q to the current window.
-.IP "\fBC-a Q\fP	(only)"
-Delete all regions but the current one.
-See also \fIsplit, remove, focus\fP.
-.IP "\fBC-a r\fP"
-.PD 0
-.IP "\fBC-a C-r\fP	(wrap)"
-.PD
-Toggle the current window's line-wrap setting (turn the current window's
-automatic margins on and off).
-.IP "\fBC-a s\fP"
-.PD 0
-.IP "\fBC-a C-s\fP	(xoff)"
-.PD
-Send a control-s to the current window.
-.IP "\fBC-a S\fP	(split)"
-Split the current region horizontally into two new ones.
-See also \fIonly, remove, focus\fP.
-.IP "\fBC-a t\fP"
-.PD 0
-.IP "\fBC-a C-t\fP	(time)"
-.PD
-Show system information.
-.IP "\fBC-a v\fP	(version)"
-.PD
-Display the version and compilation date.
-.IP "\fBC-a C-v\fP	(digraph)"
-.PD
-Enter digraph.
-.IP "\fBC-a w\fP"
-.PD 0
-.IP "\fBC-a C-w\fP	(windows)"
-.PD
-Show a list of window.
-.IP "\fBC-a W\fP	(width)"
-Toggle 80/132 columns.
-.IP "\fBC-a x\fP"
-.PD 0
-.IP "\fBC-a C-x\fP	(lockscreen)"
-.PD
-Lock this terminal.
-.IP "\fBC-a X\fP 	(remove)"
-Kill the current region.
-See also \fIsplit, only, focus\fP.
-.IP "\fBC-a z\fP"
-.PD 0
-.IP "\fBC-a C-z\fP	(suspend)"
-.PD
-Suspend
-.IR screen .
-Your system must support BSD-style job-control.
-.IP "\fBC-a Z\fP	(reset)"
-Reset the virtual terminal to its \*Qpower-on\*U values.
-.IP "\fBC-a .\fP	(dumptermcap)"
-Write out a \*Q.termcap\*U file.
-.IP "\fBC-a ?\fP	(help)"
-Show key bindings.
-.IP "\fBC-a \e\fP	(quit)"
-Kill all windows and terminate
-.IR screen .
-.IP "\fBC-a :\fP	(colon)"
-Enter command line mode.
-.IP "\fBC-a [\fP"
-.PD 0
-.IP "\fBC-a C-[\fP"
-.IP "\fBC-a esc\fP	(copy)"
-.PD
-Enter copy/scrollback mode.
-.IP "\fBC-a C-]\fP"
-.PD 0
-.IP "\fBC-a ]\fP	(paste .)"
-.PD
-Write the contents of the paste buffer to the stdin queue of the
-current window. 
-.IP "\fBC-a {\fP
-.PD 0
-.IP "\fBC-a }\fP	(history)"
-.PD
-Copy and paste a previous (command) line.
-.IP "\fBC-a >\fP	(writebuf)"
-Write paste buffer to a file.
-.IP "\fBC-a <\fP	(readbuf)"
-Reads the screen-exchange file into the paste buffer.
-.IP "\fBC-a =\fP	(removebuf)"
-Removes the file used by \fBC-a <\fP and \fPC-a >\fP.
-.IP "\fBC-a ,\fP	(license)"
-Shows where
-.I screen
-comes from, where it went to and why you can use it.
-.IP "\fBC-a _\fP	(silence)"
-Start/stop monitoring the current window for inactivity.
-.IP "\fBC-a |\fP	(split -v)"
-Split the current region vertically into two new ones.
-.IP "\fBC-a *\fP	(displays)"
-Show a listing of all currently attached displays.
+.Dd $Mdocdate: March 25 2013 $
+.Dt SCREEN 1
+.Sh screen
+.Nm screen
+.Nd Key Bindings
+.Pp
+.Bl -tag -width "XXXXXXXXXX" -offset indent -compact
+.It C-a 
+(select)
+.It C-a \&"
+(windowlist -b)
+.It C-a 0-9
+(select 0-9)
+.It C-a -
+(select -)
+.It C-a tab
+(focus)
+.It C-a C-a
+(other)
+.It C-a a
+(meta)
+.It C-a A
+(title)
+.It C-a C-b
+(break)
+.It C-a B
+(pow_break)
+.It C-a C-c
+(screen)
+.It C-a C
+(clear)
+.It C-a C-d
+(detach)
+.It C-a D D
+(pow_detach)
+.It C-a C-f
+(flow)
+.It C-a F
+(fit)
+.It C-a C-g
+(vbell)
+.It C-a h
+(hardcopy)
+.It C-a H
+(log)
+.It C-a C-i
+(info)
+.It C-a C-k
+(kill)
+.It C-a C-l
+(redisplay)
+.It C-a L
+(login)
+.It C-a C-m
+(lastmsg)
+.It C-a M
+(monitor)
+.It C-a C-n
+(next)
+.It C-a N
+(number)
+.It C-a C-p
+(prev)
+.It C-a C-q
+(xon)
+.It C-a Q
+(only)
+.It C-a C-r
+(wrap)
+.It C-a C-s
+(xoff)
+.It C-a S
+(split)
+.It C-a C-t
+(time)
+.It C-a v
+(version)
+.It C-a C-v
+(digraph)
+.It C-a C-w
+(windows)
+.It C-a W
+(width)
+.It C-a C-x
+(lockscreen)
+.It C-a X
+(remove)
+.It C-a C-z
+(suspend)
+.It C-a Z
+(reset)
+.It C-a .
+(dumptermcap)
+.It C-a ?
+(help)
+.It C-a \e
+(quit)
+.It C-a :
+(colon)
+.It C-a esc
+(copy)
+.It C-a ]
+(paste .)
+.It C-a }
+(history)
+.It C-a >
+(writebuf)
+.It C-a <
+(readbuf)
+.It C-a =
+(removebuf)
+.It C-a ,
+(license)
+.It C-a _
+(silence)
+.It C-a |
+(split -v)
+.It C-a *
+(displays)
+.El
